@@ -1,0 +1,52 @@
+﻿<Window x:Class="dodawanieDanych.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:dodawanieDanych"
+        mc:Ignorable="d"
+        Title="Piłkarze" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.RowSpan="2">
+            <Label Margin="5">Imię:</Label>
+            <local:TextBoxWithErrorProvider x:Name="textBoxWEPImie" Margin="10" FontSize="15"/>
+            <!--<TextBox x:Name="imie" Grid.Column="0" Margin="10"/> -->
+            <Label Margin="5">Nazwisko:</Label>
+            <local:TextBoxWithErrorProvider x:Name="textBoxWEPNazwisko" Margin="10" FontSize="15"/>
+            <!--<TextBox x:Name="nazwisko" Grid.Column="0" Margin="10"/>-->
+            <Label x:Name="wiek" Margin="5">Wiek: 5 lat</Label>
+            <Slider Name="wiekSlider" Margin="10" Width="200" Orientation="Horizontal"
+                    HorizontalAlignment="Center" Minimum="5" Maximum="100"
+                    SmallChange="5" LargeChange="10" TickPlacement="BottomRight"
+                    AutoToolTipPrecision="0" AutoToolTipPlacement="BottomRight"
+                    ValueChanged="Wiek_ValueChanged"
+                    />
+            <Label x:Name="waga" Margin="5">Waga: 10 kg</Label>
+            <Slider Name="wagaSlider" Margin="10" Width="200" Orientation="Horizontal"
+                    HorizontalAlignment="Center" Minimum="10" Maximum="150"
+                    SmallChange="5" LargeChange="10" TickPlacement="BottomRight"
+                    AutoToolTipPrecision="0" AutoToolTipPlacement="BottomRight"
+                    ValueChanged="Waga_ValueChanged"
+                    />
+            
+        </StackPanel>
+        <Button x:Name="buttonDodaj" Grid.Row="2" Width="100" Height="50" Margin="10" Content="Dodaj" VerticalAlignment="Center" HorizontalAlignment="Left" Click="ButtonDodaj_Click"/>
+        <Button x:Name="buttonEdytuj" Grid.Row="2"  Width="100" Height="50" Margin="10" Content="Edytuj" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Center" Click="ButtonEdytuj_Click"/>
+        <Button x:Name="buttonUsun" Grid.Row="2"  Width="100" Height="50" Margin="10" Content="Usuń" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Right" Click="ButtonUsun_Click"/>
+
+        <Label Content="------------LISTA PIŁKARZY------------" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+        <ListBox x:Name="listBoxPilkarze" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="15" FontSize="15" 
+                 SelectionChanged="ListBoxPilkarze_SelectionChanged"/>
+    </Grid>
+</Window>

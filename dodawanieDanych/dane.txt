@@ -1,0 +1,4 @@
+Hadam|Piotr|23|65
+Krawczyk|Krzysztof|55|75
+Torres|Fernando|40|63
+Del Rio|Bianca|45|55
