@@ -27,7 +27,7 @@ namespace dodawanieDanych
         {
             TextBoxWithErrorProvider.BrushForAll = Brushes.Red;
             InitializeComponent();
-            //textBoxWEPImie.SetFocus();
+            textBoxWEPImie.SetFocus();
         }
 
         /*
@@ -130,7 +130,7 @@ namespace dodawanieDanych
 
             //odznaczenie listy
             listBoxPilkarze.SelectedIndex = -1;
-            textBoxWEPImie.Focus();
+            textBoxWEPImie.SetFocus();
         }
 
         private void Wiek_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -152,6 +152,7 @@ namespace dodawanieDanych
             {
                 listBoxPilkarze.Items.Remove(listBoxPilkarze.SelectedItem);
                 listBoxPilkarze.Items.Refresh();
+                Clear();
             }
 
             
@@ -177,7 +178,7 @@ namespace dodawanieDanych
 
             buttonEdytuj.IsEnabled = true;
             buttonUsun.IsEnabled = true;
-            //textBoxWEPImie.SetFocus();
+            textBoxWEPImie.SetFocus();
         }
 
         //metoda wykonana po załadowaniu okna
@@ -214,19 +215,7 @@ namespace dodawanieDanych
 
         private bool czyPilkarzJestJuzNaLiscie()
         {
-            //var biezacyPilkarz = (Pilkarz)listBoxPilkarze.SelectedItem;
-            //if (biezacyPilkarz.Imie == textBoxWEPImie.Text && biezacyPilkarz.Nazwisko == textBoxWEPNazwisko.Text &&
-            //    biezacyPilkarz.Wiek == wiekSlider.Value && biezacyPilkarz.Waga == wagaSlider.Value)
-            //{
-            //    return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}
             bool juzJest = false;
-            
-
             foreach (Pilkarz gracz in listBoxPilkarze.Items)
             {
                 if (gracz.Imie == textBoxWEPImie.Text && gracz.Nazwisko == textBoxWEPNazwisko.Text &&

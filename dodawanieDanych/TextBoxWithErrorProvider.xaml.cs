@@ -22,7 +22,7 @@ namespace dodawanieDanych
     {
 
         #region Właściwości
-        public static Brush BrushForAll { get; set; } = Brushes.Brown;
+        public static Brush BrushForAll { get; set; } = Brushes.Red;
 
         public Brush TextBoxBorderBrush
         {
@@ -67,14 +67,21 @@ namespace dodawanieDanych
             textBlockToolTip.Text = errorText;
             if (errorText != "")
             {
+                //nie ma błędu
                 border.BorderThickness = new Thickness(1);
                 toolTip.Visibility = Visibility.Visible;
             }
             else
             {
+                //zgłaszam błąd
                 border.BorderThickness = new Thickness(0);
                 toolTip.Visibility = Visibility.Hidden;
             }
+        }
+
+        public void SetFocus()
+        {
+            textBox.Focus();
         }
     }
 }
